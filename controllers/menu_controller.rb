@@ -1,4 +1,4 @@
-require_relative "../models/address_book"
+require_relative "../models/address_book.rb"
 
 class MenuController
     attr_accessor :address_book
@@ -11,10 +11,11 @@ class MenuController
         
         puts "Main Menu - #{@address_book.entries.count} entries"
         puts "1 - View all entries"
-        puts "2 - Create an entry"
-        puts "3 - Search for an entry"
-        puts "4 - Import entries from a CSV"
-        puts "5 - Exit"
+        puts "2 - View Entry Number n"
+        puts "3 - Create an entry"
+        puts "4 - Search for an entry"
+        puts "5 - Import entries from a CSV"
+        puts "6 - Exit"
         print "Enter your selection: "
         
         
@@ -28,17 +29,21 @@ class MenuController
             main_menu
             when 2
             system "clear"
-            create_entry
+            view_entry_number
             main_menu
             when 3
             system "clear"
-            search_entries
+            create_entry
             main_menu
             when 4
             system "clear"
-            read_csv
+            search_entries
             main_menu
             when 5
+            system "clear"
+            read_csv
+            main_menu
+            when 6
             puts "Good-bye!"
             
             exit(0)
@@ -62,6 +67,24 @@ class MenuController
             system "clear"
             puts "End of entries"
         end
+        
+        def view_entry_number
+            print "Entry number to view: "
+            
+                selection = gets.chomp.to_i
+            
+                if selection < @address_book.entries.count
+                  puts @address_book.entries[selection]
+                  puts "Press enter to return to the main menu"
+                  gets.chomp
+                  system "clear"
+                else
+                  puts "#{selection} is not a valid input"
+                  view_entry_number
+                end
+        end
+                
+            
     
         def create_entry
             system "clear"
@@ -112,5 +135,5 @@ class MenuController
                 entries_submenu(entry)
             end
         end
-    end
 end
+
