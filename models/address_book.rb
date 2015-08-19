@@ -28,5 +28,12 @@ class AddressBook
         index = 0
     end
     
-    
+    def view_entry_number(index)
+            if index >= 0 && index < entries.size
+              return entries[index]
+            else
+              system "clear"
+              puts "The number you selected is not valid"
+            end
+      end
 end
