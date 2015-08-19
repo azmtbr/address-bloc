@@ -29,4 +29,15 @@ class AddressBook
         end
         index = 0
     end
+    
+    def view_entry_number(number)
+        @entries.each do |entry|
+            if @entries == entry.number
+                puts "#{entry}"
+            else
+                puts "Please enter a valid entry number"
+                view_entry_number
+            end
+        end
+    end
 end

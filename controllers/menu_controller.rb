@@ -29,6 +29,8 @@ class MenuController
             main_menu
             when 2
             system "clear"
+            view_entry_number
+            main_menu
             when 3
             system "clear"
             create_entry
@@ -63,6 +65,18 @@ class MenuController
         
         system "clear"
         puts "End of entries"
+    end
+    
+    def view_entry_number
+        system "clear"
+        
+        print "Enter the number of the entry you with to view: "
+        number = gets.chomp
+        
+        @address_book.view_entry_number(number)
+        
+        system "clear"
+        puts "Here is your entry"
     end
     
     def create_entry
