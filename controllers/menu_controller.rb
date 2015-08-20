@@ -94,7 +94,7 @@ class MenuController
           print "Update name: "
           name = gets.chomp
           print "Updated phone number: "
-          phone_number == gets.chomp
+          phone_number = gets.chomp
           print "Updated email: "
           email = gets.chomp
           #use !attribute.empty? to set attributes on entry only if a valid attribute was read from user input.
@@ -171,7 +171,7 @@ class MenuController
 
 
           def entry_submenu(entry)
-            puts "\nn - next entry"
+            puts "n - next entry"
             puts "d - delete entry"
             puts "e - edit this entry"
             puts "m - return to main menu"
@@ -199,7 +199,7 @@ class MenuController
 
         def search_submenu(entry)
           #print out the submenu for an entry.
-          puts "/nd - delete_entry"
+          puts "d - delete_entry"
           puts "e - edit this entry"
           puts "m - return to main menu"
           #save the user input to selection.
@@ -225,5 +225,3 @@ class MenuController
             search_submenu(entry)
           end
         end
-
-end
