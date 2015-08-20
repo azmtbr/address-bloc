@@ -40,6 +40,10 @@ class AddressBook
         index = 0
     end
 
+    def delete_all_entries
+      @entries.clear
+    end
+
     def view_entry_number(index)
             if index >= 0 && index < entries.size
               return entries[index]
